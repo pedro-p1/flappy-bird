@@ -3,29 +3,31 @@
 [ext_resource type="Texture2D" uid="uid://d0yy72bqxeifn" path="res://assets/sprites/pipe.png" id="1_8x3ej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
-size = Vector2(293, 877)
+size = Vector2(149, 757)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0di"]
-size = Vector2(294, 970)
+size = Vector2(148, 780)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_mask = 0
 
 [node name="top-collision" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -740.5)
+position = Vector2(-0.5, -601.5)
 shape = SubResource("RectangleShape2D_arpqm")
 
 [node name="bottom-collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 784)
+position = Vector2(0, 618)
 shape = SubResource("RectangleShape2D_8p0di")
 
 [node name="bottom-sprite" type="Sprite2D" parent="."]
-position = Vector2(0, 728)
+position = Vector2(0, 587)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_8x3ej")
 
 [node name="top-sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -731)
+position = Vector2(0, -584)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_8x3ej")
 flip_v = true
+
+[node name="Area2D" type="Area2D" parent="."]

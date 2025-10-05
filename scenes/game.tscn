@@ -1,20 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjvailr1gon07"]
+[gd_scene load_steps=5 format=3 uid="uid://bjvailr1gon07"]
 
+[ext_resource type="Script" uid="uid://ova5yhrbymal" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bshlqvputpjqv" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://1owv4uslhuig" path="res://scenes/pipes.gd" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://b8n2u3wxdiopa" path="res://scenes/pipe.tscn" id="2_yqjtg"]
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_lnu2h")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -4156.0
-offset_top = -3697.0
-offset_right = 6263.0
-offset_bottom = 3952.0
+offset_left = -424.0
+offset_top = -356.0
+offset_right = 2891.0
+offset_bottom = 1848.0
 color = Color(0, 0.7921569, 1, 1)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(884, 647)
-scale = Vector2(0.2, 0.2)
+[node name="pipes" type="Node2D" parent="."]
+script = ExtResource("2_lbhrr")
 
-[node name="StaticBody2D" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(931, 733)
+[node name="pipe" parent="pipes" instance=ExtResource("2_yqjtg")]
+position = Vector2(1226, 747)
+
+[node name="bird" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(313.00006, 736)
+scale = Vector2(0.2, 0.2)
