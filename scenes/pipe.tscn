@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8n2u3wxdiopa"]
+[gd_scene load_steps=6 format=3 uid="uid://b8n2u3wxdiopa"]
 
 [ext_resource type="Texture2D" uid="uid://d0yy72bqxeifn" path="res://assets/sprites/pipe.png" id="1_8x3ej"]
+[ext_resource type="Script" uid="uid://lrl83n3n4tmr" path="res://scenes/pipe.gd" id="1_arpqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
 size = Vector2(149, 757)
@@ -8,8 +9,11 @@ size = Vector2(149, 757)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0di"]
 size = Vector2(148, 780)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x3ej"]
+size = Vector2(98, 418)
+
 [node name="StaticBody2D" type="StaticBody2D"]
-collision_mask = 0
+script = ExtResource("1_arpqm")
 
 [node name="top-collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -601.5)
@@ -30,4 +34,8 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_8x3ej")
 flip_v = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="score-checker" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="score-checker"]
+position = Vector2(39, 3)
+shape = SubResource("RectangleShape2D_8x3ej")
