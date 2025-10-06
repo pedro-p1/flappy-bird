@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjvailr1gon07"]
+[gd_scene load_steps=9 format=3 uid="uid://bjvailr1gon07"]
 
 [ext_resource type="PackedScene" uid="uid://bshlqvputpjqv" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://1owv4uslhuig" path="res://scenes/pipes.gd" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://b8n2u3wxdiopa" path="res://scenes/pipe.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://d207t4g6a6cdm" path="res://scenes/worldboundaries.gd" id="4_lbhrr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]
 font_size = 100
@@ -10,6 +11,16 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 30
 shadow_color = Color(0, 0, 0, 0.07058824)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lbhrr"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
+distance = -1440.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+normal = Vector2(0, 1)
 
 [node name="game" type="Node2D"]
 
@@ -22,6 +33,7 @@ color = Color(0, 0.7921569, 1, 1)
 
 [node name="pipes" type="Node2D" parent="."]
 script = ExtResource("2_lbhrr")
+pipe_scene = ExtResource("2_yqjtg")
 
 [node name="pipe" parent="pipes" instance=ExtResource("2_yqjtg")]
 position = Vector2(1226, 747)
@@ -37,3 +49,14 @@ offset_right = 583.0
 offset_bottom = 200.0
 text = "score"
 label_settings = SubResource("LabelSettings_lnu2h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_lbhrr")
+script = ExtResource("4_lbhrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lnu2h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")

@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		
 	var collision = move_and_collide(velocity * delta)
-	if collision:
+	if collision and not collision.get_collider().is_in_group("world boundaries"):
 		self.hide()	#This is what happens when bird collides
 
 	move_and_slide()
