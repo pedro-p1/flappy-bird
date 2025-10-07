@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjvailr1gon07"]
+[gd_scene load_steps=8 format=3 uid="uid://bjvailr1gon07"]
 
 [ext_resource type="PackedScene" uid="uid://bshlqvputpjqv" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://1owv4uslhuig" path="res://scenes/pipes.gd" id="2_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://b8n2u3wxdiopa" path="res://scenes/pipe.tscn" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://d207t4g6a6cdm" path="res://scenes/worldboundaries.gd" id="4_lbhrr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]
@@ -33,9 +32,6 @@ color = Color(0, 0.7921569, 1, 1)
 
 [node name="pipes" type="Node2D" parent="."]
 script = ExtResource("2_lbhrr")
-
-[node name="pipe" parent="pipes" instance=ExtResource("2_yqjtg")]
-position = Vector2(1226, 747)
 
 [node name="bird" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(313.00006, 736)
