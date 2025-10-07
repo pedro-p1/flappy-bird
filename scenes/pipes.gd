@@ -4,7 +4,6 @@ const MOVESPEED = 200 # speed that the pipes move
 var height: int = 0 # range of the y coord
 var xcoord: int = 0
 var pipe = preload("res://scenes/pipe.tscn")
-@onready var pipes: Node2D = $"."
 
 func createPipe():
 	for i in range(1000000000):
@@ -17,7 +16,7 @@ func createPipe():
 
 func _ready() -> void:
 	createPipe()
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
