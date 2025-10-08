@@ -17,6 +17,8 @@ func createPipe():
 		await get_tree().create_timer(4).timeout
 		
 		newPipe.pipe_passed.connect(_on_pipe_passed)
+		
+		
 
 func _on_pipe_passed():
 	score += 1
