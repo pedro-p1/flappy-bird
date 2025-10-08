@@ -1,7 +1,6 @@
 extends StaticBody2D
 
-var passed: bool = false
+signal pipe_passed
 
 func _on_scorechecker_body_exited(_body: Node2D) -> void:
-	passed = true
-	print("passed")
+	emit_signal("pipe_passed")

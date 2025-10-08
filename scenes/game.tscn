@@ -38,11 +38,13 @@ position = Vector2(313.00006, 736)
 scale = Vector2(0.2, 0.2)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 83.0
-offset_top = 29.0
-offset_right = 583.0
-offset_bottom = 200.0
-text = "score"
+offset_left = 1944.0
+offset_top = 32.0
+offset_right = 2315.0
+offset_bottom = 169.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "score: 0"
 label_settings = SubResource("LabelSettings_lnu2h")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
