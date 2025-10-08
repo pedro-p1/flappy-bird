@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5ym6n3v6hkoq"]
+
+[ext_resource type="Script" uid="uid://2g7wt3jb4s8k" path="res://scenes/gameover_screen.gd" id="1_i8x28"]
+
+[sub_resource type="Theme" id="Theme_i8x28"]
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_ixdfg"]
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_3mx4w"]
+default_font_size = 80
+
+[node name="gameover" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i8x28")
+
+[node name="darken" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1376.0
+offset_top = -832.0
+offset_right = 1376.0
+offset_bottom = 832.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2509804)
+
+[node name="box" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -424.0
+offset_right = 440.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+
+[node name="restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -48.0
+offset_right = 280.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_i8x28")
+text = "Restart"
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = 152.0
+offset_right = 280.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ixdfg")
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -320.0
+offset_right = 336.0
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3mx4w")
+theme_override_colors/font_color = Color(0.99999994, 0.124691345, 0.08532091, 1)
+text = "Game over"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

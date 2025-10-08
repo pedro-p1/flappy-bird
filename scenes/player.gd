@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+signal collided
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -16,6 +17,6 @@ func _physics_process(delta: float) -> void:
 		
 	var collision = move_and_collide(velocity * delta)
 	if collision and not collision.get_collider().is_in_group("world boundaries"):
-		self.hide()	#This is what happens when bird collides
-
+		emit_signal("collided")
+		
 	move_and_slide()
